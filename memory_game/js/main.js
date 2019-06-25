@@ -1,13 +1,5 @@
 console.log("Up and running!");
 
-// var cardOne = "king";
-// var cardTwo = "queen";
-// var cardThree = "king";
-// var cardFour = "queen";
-
-// console.log("User flipped " + cardOne);
-// console.log("User flipped " + cardTwo);
-
 
 var cards = [
 	{
@@ -37,35 +29,6 @@ var cards = [
 var cardsInPlay = [];
 
 
-function checkForMatch() {
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-			alert("You found a match!");
-		} else {
-			alert("Sorry, try again.");
-		}
-};
-
-
-
-function flipCard() {
-	
-	const cardId = this.getAttribute("data-id");//good
-	
-	this.setAttribute("src", cards[cardId].cardImage);//issue
-
-	if (cardsInPlay.length === 2) {
-	checkForMatch();	
-	} console.log("User flipped " + cards[cardId].rank);
-	cardsInPlay.push(cards[cardId].rank);
-	console.log(cards[cardId].cardImage);
-	console.log(cards[cardId].suit);
-};
-
-
-
-
-
-//issue
 function createBoard() {
 	for (var i = 0; i < cards.length; i++) { //good
 		
@@ -81,12 +44,47 @@ function createBoard() {
 
 
 
+function checkForMatch() {
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+			alert("You found a match!");
+		} else {
+			alert("Sorry, try again.");
+		}
+};
+
+
+
+function flipCard() {
+	
+	const cardId = this.getAttribute("data-id");//good
+//where this.seAttribute was	
+
+//where if statement was
+	console.log("User flipped " + cards[cardId].rank);
+	cardsInPlay.push(cards[cardId].rank);
+	console.log(cards[cardId].cardImage);
+	console.log(cards[cardId].suit);
+
+	this.setAttribute("src", cards[cardId].cardImage);//issue
+
+	if (cardsInPlay.length === 2) {
+	checkForMatch();	
+	} 
+};
+
+
+
+//where createBoard was
+
+
+
+
 createBoard();
 
 //should reset after getting match
 //should alert before it flips
 
-//issue
+
 
 
 
